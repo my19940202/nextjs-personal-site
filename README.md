@@ -3,7 +3,9 @@
 
 这是一个通用的落地页模板，适合各种项目和营销活动。 
 演示地址：https://landingpage.weijunext.com
-
+模板说明文档
+- https://weijunext.com/article/ship-langding-page-fast1
+- https://weijunext.com/article/ship-langding-page-fast2
 ## 技术栈
 
 Landing page boilerplate 基于以下技术栈构建：
