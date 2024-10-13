@@ -11,12 +11,6 @@ import "@/styles/globals.css";
 import "@/styles/loading.css";
 import { Analytics } from "@vercel/analytics/react";
 import { Viewport } from "next";
-import { Inter as FontSans } from "next/font/google";
-
-export const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
 
 export const metadata = {
   title: siteConfig.name,
@@ -43,12 +37,7 @@ export default async function RootLayout({
   return (
     <html lang={(lang && lang[0]) || defaultLocale} suppressHydrationWarning>
       <head />
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
-      >
+      <body className={cn("min-h-screen bg-background font-sans antialiased")}>
         <ThemeProvider
           attribute="class"
           defaultTheme={siteConfig.nextThemeColor}
@@ -72,3 +61,4 @@ export default async function RootLayout({
     </html>
   );
 }
+

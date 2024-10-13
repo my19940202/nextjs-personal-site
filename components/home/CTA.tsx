@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import CTAButton from "@/components/home/CTAButton";
 import { RoughNotation } from "react-rough-notation";
 
 const CTA = ({ locale, CTALocale }: { locale: any; CTALocale: any }) => {
@@ -22,9 +21,10 @@ const CTA = ({ locale, CTALocale }: { locale: any; CTALocale: any }) => {
           {locale.description6}
         </p>
       </div>
-      <CTAButton locale={CTALocale} />
+      {/* <CTAButton locale={CTALocale} /> */}
     </section>
   );
 };
 
 export default CTA;
+

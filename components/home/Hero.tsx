@@ -1,6 +1,5 @@
 "use client";
 import { LineText } from "@/components/LineText";
-import CTAButton from "@/components/home/CTAButton";
 import { motion } from "framer-motion";
 
 const Hero = ({ locale, CTALocale }: { locale: any; CTALocale: any }) => {
@@ -30,9 +29,10 @@ const Hero = ({ locale, CTALocale }: { locale: any; CTALocale: any }) => {
           </p>
         </section>
       </motion.div>
-      <CTAButton locale={CTALocale}></CTAButton>
+      {/* <CTAButton locale={CTALocale}></CTAButton> */}
     </>
   );
 };
 
 export default Hero;
+
