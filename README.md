@@ -1,39 +1,22 @@
 
-# [Landing page boilerplate](https://landingpage.weijunext.com/)
+# Xibobo | Personal Website
 
-这是一个通用的落地页模板，适合各种项目和营销活动。 
-演示地址：https://landingpage.weijunext.com
-模板说明文档
-- https://weijunext.com/article/ship-langding-page-fast1
-- https://weijunext.com/article/ship-langding-page-fast2
-## 技术栈
+https://aizeten.me
 
-Landing page boilerplate 基于以下技术栈构建：
-- Next.js – 前端
-- TailwindCSS – 样式
-- Google Analytics
-- Vercel - 托管
+This is the personal website of Xibobo, built with Next.js and the landing-page-boilerplate template.
+## Tech Stack
 
+- Next.js
+- TailwindCSS
+- Google Analytics / Baidu Tongji
+- Vercel
 
-## 本地运行
-
-克隆仓库后，您需要复制 `.env.example` 文件来创建一个 `.env` 文件，并填写所需字段。
-
-然后，在命令行中运行应用程序，它将在 `http://localhost:3000` 上可用。
+## Local Development
 
 ```bash
 npm run dev
 ```
 
-## 创建你的项目
+## Deployment
 
-修改以下文件：
-- `.env` or `.env.example`
-- `config/site.ts`, 填写你的网站信息
-- `public`, 修改 logo 文件
-- `public/robots.txt`
-
-
-## 一键部署
-
-使用 Vercel
+Deploy to Vercel and configure custom domain `aizeten.me` in the project settings.

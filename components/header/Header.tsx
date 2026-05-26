@@ -10,22 +10,7 @@ import { CgClose } from "react-icons/cg";
 import { ThemedButton } from "../ThemedButton";
 
 const links = [
-  {
-    label: "Features",
-    href: "#Features",
-  },
-  {
-    label: "Pricing",
-    href: "#Pricing",
-  },
-  {
-    label: "Wall of Love",
-    href: "#WallOfLove",
-  },
-  {
-    label: "FAQ",
-    href: "#FAQ",
-  },
+  // Add navigation links here when you enable more sections in the page
 ];
 
 const Header = () => {
@@ -102,7 +87,7 @@ const Header = () => {
                         height={32}
                       />
                       <span className="ml-2 text-xl font-bold tracking-wide text-gray-950 dark:text-gray-300">
-                        Landing Page
+                        xibobo 个人网站
                       </span>
                     </Link>
                   </div>

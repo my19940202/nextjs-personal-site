@@ -42,7 +42,7 @@ export const FAQS_EN = [
   {
     title: "Do you offer any customization services?",
     content:
-      "We accept paid custom development of landing pages. Please contact us via email at weijunext@gmail.com or Twitter @weijunext.",
+      "We accept paid custom development of landing pages. Please contact us via email at xishengbo@gmail.com or Twitter @xishengbo.",
   },
   {
     title: "Are there any restrictions on using this template?",

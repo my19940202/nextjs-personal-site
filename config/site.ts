@@ -1,32 +1,25 @@
 import { SiteConfig } from "@/types/siteConfig";
-import { BsGithub, BsTwitterX, BsWechat } from "react-icons/bs";
+import { BsGithub, BsTwitterX } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
-import { SiBuymeacoffee, SiJuejin } from "react-icons/si";
 
-const OPEN_SOURCE_URL = "https://github.com/weijunext/landing-page-boilerplate";
+const OPEN_SOURCE_URL = "https://github.com/my19940202/";
 
 const baseSiteConfig = {
-  name: "Landing page boilerplate",
-  description:
-    "A free, open-source, and powerful landing page boilerplate, ideal for various projects, enabling you to create a landing page in under an hour.",
-  url: "https://landingpage.weijunext.com",
-  ogImage: "https://landingpage.weijunext.com/og.png",
+  name: "Xibobo",
+  description: "Personal website of Xibobo.",
+  url: "https://aizeten.me",
+  ogImage: "https://aizeten.me/og.png",
   metadataBase: "/",
-  keywords: [
-    "landing page boilerplate",
-    "landing page template",
-    "awesome landing page",
-    "next.js landing page",
-  ],
+  keywords: ["xibobo", "personal website", "portfolio", "aizeten.me"],
   authors: [
     {
       name: "xibobo",
-      url: "https://www.xishengbo.xyz/",
+      url: "https://aizeten.me",
       twitter: "https://twitter.com/xishengbo",
     },
   ],
-  creator: "@xibobo",
-  openSourceURL: "https://github.com/weijunext/landing-page-boilerplate",
+  creator: "@xishengbo",
+  openSourceURL: "https://github.com/my19940202/",
   themeColors: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
@@ -38,16 +31,11 @@ const baseSiteConfig = {
     apple: "/logo.png",
   },
   headerLinks: [
-    { name: "repo", href: OPEN_SOURCE_URL, icon: BsGithub },
+    { name: "github", href: "https://github.com/my19940202/", icon: BsGithub },
     {
       name: "twitter",
       href: "https://twitter.com/xishengbo",
       icon: BsTwitterX,
-    },
-    {
-      name: "buyMeCoffee",
-      href: "https://www.buymeacoffee.com/xishengbow",
-      icon: SiBuymeacoffee,
     },
   ],
   footerLinks: [
@@ -58,29 +46,8 @@ const baseSiteConfig = {
       icon: BsTwitterX,
     },
     { name: "github", href: "https://github.com/my19940202/", icon: BsGithub },
-    {
-      name: "buyMeCoffee",
-      href: "https://www.buymeacoffee.com/xishengbow",
-      icon: SiBuymeacoffee,
-    },
-    {
-      name: "juejin",
-      href: "https://juejin.cn/user/4019470241369662",
-      icon: SiJuejin,
-    },
-    {
-      name: "weChat",
-      href: "https://weijunext.com/make-a-friend",
-      icon: BsWechat,
-    },
   ],
-  footerProducts: [
-    { url: "https://www.ifinder.one/", name: "iFinder" },
-    {
-      url: "https://blackmyth.top/",
-      name: "blackmyth wukong source site",
-    },
-  ],
+  footerProducts: [],
 };
 
 export const siteConfig: SiteConfig = {
