@@ -70,7 +70,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         onClick={onClose}
       />
 
-      <div className="relative z-10 w-full max-w-2xl rounded-xl border border-white/10 bg-[#141414] shadow-2xl">
+      <div className="relative z-10 w-full max-w-6xl rounded-xl border border-white/10 bg-[#141414] shadow-2xl">
         <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
           <div>
             <h3 className="text-lg font-semibold text-zinc-100">{project.title}</h3>
@@ -89,7 +89,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </button>
         </div>
 
-        <div className="relative flex aspect-[9/16] max-h-[60vh] w-full items-center justify-center bg-[#0a0a0a] sm:aspect-video sm:max-h-none">
+        <div className="relative flex aspect-[9/16] max-h-[80vh] w-full items-center justify-center bg-[#0a0a0a] sm:aspect-video sm:max-h-none">
           {hasRealImages ? (
             <Image
               src={current}
@@ -143,23 +143,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             />
           ))}
         </div>
-
-        {project.qrCode ? (
-          <div className="border-t border-white/10 px-5 py-4 text-center">
-            <p className="mb-2 text-sm text-zinc-500">扫码体验</p>
-            <Image
-              src={project.qrCode}
-              alt={`${project.title} 二维码`}
-              width={120}
-              height={120}
-              className="mx-auto rounded-lg"
-            />
-          </div>
-        ) : (
-          <div className="border-t border-white/10 px-5 py-4 text-center text-sm text-zinc-600">
-            小程序二维码稍后提供
-          </div>
-        )}
       </div>
     </div>
   );

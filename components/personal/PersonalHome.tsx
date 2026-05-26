@@ -59,11 +59,12 @@ function ProjectCard2B({
 }) {
   return (
     <article className="group flex flex-col gap-5 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 transition hover:border-white/[0.14] hover:bg-white/[0.04] sm:flex-row">
-      <div className="sm:w-44 sm:shrink-0">
-        <PlaceholderImage
-          label="点击查看示例截图"
-          onClick={() => onOpen(project)}
-        />
+      <div className="sm:w-[120px] sm:h-[120px] sm:shrink-0">
+        {
+          project.images
+            ? <Image src={project.images} alt={project.title} width={120} height={120} className="rounded-lg" />
+            : <PlaceholderImage label="项目封面占位" />
+        }
       </div>
       <div className="flex flex-1 flex-col gap-3">
         <div>

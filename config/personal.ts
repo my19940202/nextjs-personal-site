@@ -12,6 +12,7 @@ export type Project2B = {
   galleryImages: string[];
   /** 小程序二维码，稍后补充 */
   qrCode?: string;
+  images?: string;
 };
 
 export type Project2C = {
@@ -104,7 +105,13 @@ export const projects2B: Project2B[] = [
     description:
       "为装修行业打造的微信小程序，将微信群宣传、需求收集、购物车与订单流程线上化，帮助装修老板高效分发与管理客户需求。",
     tags: ["微信小程序", "2B", "电商"],
-    galleryImages: [],
+    galleryImages: [
+      '/projects/house-decoration/cart.jpg',
+      '/projects/house-decoration/index.jpg',
+      '/projects/house-decoration/menu.jpg',
+      '/projects/house-decoration/order.jpg',
+      '/projects/house-decoration/user.jpg'
+    ],
   },
   {
     id: "language-learning",
@@ -112,7 +119,16 @@ export const projects2B: Project2B[] = [
     description:
       "为方竹小语种培训开发的学习小程序，支持单词书、日历打卡、用户中心与兑换码等功能，帮助学员建立稳定的语言学习习惯。",
     tags: ["微信小程序", "2B", "教育"],
-    galleryImages: [],
+    images: '/icons/words.jpeg',
+    galleryImages: [
+      '/projects/words/1.png',
+      '/projects/words/2.png',
+      '/projects/words/3.png',
+      '/projects/words/4.png',
+      '/projects/words/5.png',
+      '/projects/words/6.png',
+      '/projects/words/7.png',
+    ],
   },
   {
     id: "scenic-guide",
@@ -120,7 +136,14 @@ export const projects2B: Project2B[] = [
     description:
       "面向景区 C 端的小程序，包含地图标注、GPS 定位、路线规划、景点语音导览，以及 AI 交互引导浏览等功能。",
     tags: ["微信小程序", "2B", "文旅"],
-    galleryImages: [],
+    images: '/icons/rys.jpeg',
+    galleryImages: [
+      '/projects/rys/0.png',
+      '/projects/rys/1.png',
+      '/projects/rys/2.png',
+      '/projects/rys/3.png',
+      '/projects/rys/4.png'
+    ],
   },
 ];
 
