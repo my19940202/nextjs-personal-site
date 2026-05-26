@@ -9,7 +9,7 @@ import { useState } from "react";
 import { CgClose } from "react-icons/cg";
 import { ThemedButton } from "../ThemedButton";
 
-const links = [
+const links: { label: string; href: string }[] = [
   // Add navigation links here when you enable more sections in the page
 ];
 

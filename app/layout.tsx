@@ -2,8 +2,6 @@ import BaiDuAnalytics from "@/app/BaiDuAnalytics";
 import GoogleAnalytics from "@/app/GoogleAnalytics";
 import { TailwindIndicator } from "@/components/TailwindIndicator";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import Footer from "@/components/footer/Footer";
-import Header from "@/components/header/Header";
 import { siteConfig } from "@/config/site";
 import { defaultLocale } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -37,15 +35,18 @@ export default async function RootLayout({
   return (
     <html lang={(lang && lang[0]) || defaultLocale} suppressHydrationWarning>
       <head />
-      <body className={cn("min-h-screen bg-background font-sans antialiased")}>
+      <body
+        className={cn(
+          "min-h-screen bg-[#0a0a0a] font-sans text-zinc-300 antialiased"
+        )}
+      >
         <ThemeProvider
           attribute="class"
-          defaultTheme={siteConfig.nextThemeColor}
-          enableSystem
+          defaultTheme="dark"
+          forcedTheme="dark"
+          enableSystem={false}
         >
-          <Header />
-          <main className="flex flex-col items-center py-6">{children}</main>
-          <Footer />
+          <main className="min-h-screen">{children}</main>
           <Analytics />
           <TailwindIndicator />
         </ThemeProvider>

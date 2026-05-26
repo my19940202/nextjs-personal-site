@@ -5,8 +5,8 @@ import { MdEmail } from "react-icons/md";
 const OPEN_SOURCE_URL = "https://github.com/my19940202/";
 
 const baseSiteConfig = {
-  name: "Xibobo",
-  description: "Personal website of Xibobo.",
+  name: "xibobo",
+  description: "Personal website of xibobo.",
   url: "https://aizeten.me",
   ogImage: "https://aizeten.me/og.png",
   metadataBase: "/",
