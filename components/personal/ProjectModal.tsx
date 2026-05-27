@@ -65,16 +65,16 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     >
       <button
         type="button"
-        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+        className="ps-modal-overlay absolute inset-0"
         aria-label="关闭"
         onClick={onClose}
       />
 
-      <div className="relative z-10 w-full max-w-6xl rounded-xl border border-white/10 bg-[#141414] shadow-2xl">
-        <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+      <div className="ps-modal relative z-10 w-full max-w-6xl">
+        <div className="ps-modal-header flex items-center justify-between px-5 py-4">
           <div>
-            <h3 className="text-lg font-semibold text-zinc-100">{project.title}</h3>
-            <p className="text-sm text-zinc-500">
+            <h3 className="ps-text-title text-lg font-semibold">{project.title}</h3>
+            <p className="ps-text-muted text-sm">
               {index + 1} / {total}
               {!hasRealImages && " · 截图占位，稍后更新"}
             </p>
@@ -82,14 +82,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg p-2 text-zinc-400 transition hover:bg-white/5 hover:text-zinc-100"
+            className="ps-modal-control rounded-lg p-2"
             aria-label="关闭弹窗"
           >
             <X className="h-5 w-5" />
           </button>
         </div>
 
-        <div className="relative flex aspect-[9/16] max-h-[80vh] w-full items-center justify-center bg-[#0a0a0a] sm:aspect-video sm:max-h-none">
+        <div className="ps-modal-viewport relative flex aspect-[9/16] max-h-[80vh] w-full items-center justify-center sm:aspect-video sm:max-h-none">
           {hasRealImages ? (
             <Image
               src={current}
@@ -99,8 +99,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               sizes="(max-width: 768px) 100vw, 672px"
             />
           ) : (
-            <div className="flex flex-col items-center gap-3 text-zinc-500">
-              <div className="flex h-32 w-20 items-center justify-center rounded-lg border border-dashed border-zinc-700 bg-zinc-900/50">
+            <div className="ps-text-muted flex flex-col items-center gap-3">
+              <div className="ps-placeholder aspect-auto h-32 w-20 justify-center">
                 <span className="text-2xl">📱</span>
               </div>
               <span className="text-sm">示例截图 {index + 1}</span>
@@ -112,7 +112,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               <button
                 type="button"
                 onClick={goPrev}
-                className="absolute left-3 rounded-full border border-white/10 bg-black/50 p-2 text-zinc-300 transition hover:bg-black/80"
+                className="ps-modal-nav-btn absolute left-3"
                 aria-label="上一张"
               >
                 <ChevronLeft className="h-5 w-5" />
@@ -120,7 +120,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               <button
                 type="button"
                 onClick={goNext}
-                className="absolute right-3 rounded-full border border-white/10 bg-black/50 p-2 text-zinc-300 transition hover:bg-black/80"
+                className="ps-modal-nav-btn absolute right-3"
                 aria-label="下一张"
               >
                 <ChevronRight className="h-5 w-5" />
@@ -129,7 +129,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           )}
         </div>
 
-        <div className="flex justify-center gap-2 border-t border-white/10 px-5 py-3">
+        <div className="ps-modal-header flex justify-center gap-2 px-5 py-3">
           {images.map((_, i) => (
             <button
               key={i}
@@ -138,7 +138,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               aria-label={`跳转到第 ${i + 1} 张`}
               className={cn(
                 "h-1.5 rounded-full transition-all",
-                i === index ? "w-6 bg-zinc-300" : "w-1.5 bg-zinc-600 hover:bg-zinc-400"
+                i === index ? cn("w-6 ps-modal-dot-active") : cn("w-1.5 ps-modal-dot")
               )}
             />
           ))}

@@ -1,6 +1,7 @@
 "use client";
 
 import ProjectModal from "@/components/personal/ProjectModal";
+import ThemeToggle from "@/components/personal/ThemeToggle";
 import {
   homeContent,
   NavId,
@@ -29,8 +30,8 @@ function PlaceholderImage({
   const inner = (
     <div
       className={cn(
-        "flex aspect-[4/3] w-full flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-zinc-700 bg-zinc-900/40 text-zinc-500 transition",
-        onClick && "cursor-pointer hover:border-zinc-500 hover:bg-zinc-900/70",
+        "ps-placeholder",
+        onClick && "ps-placeholder-interactive",
         className
       )}
     >
@@ -58,33 +59,36 @@ function ProjectCard2B({
   onOpen: (p: Project2B) => void;
 }) {
   return (
-    <article className="group flex flex-col gap-5 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 transition hover:border-white/[0.14] hover:bg-white/[0.04] sm:flex-row">
-      <div className="sm:w-[120px] sm:h-[120px] sm:shrink-0">
-        {
-          project.images
-            ? <Image src={project.images} alt={project.title} width={120} height={120} className="rounded-lg" />
-            : <PlaceholderImage label="项目封面占位" />
-        }
+    <article className={cn("ps-card ps-card-hover group flex flex-col gap-5 sm:flex-row")}>
+      <div className="sm:h-[120px] sm:w-[120px] sm:shrink-0">
+        {project.images ? (
+          <Image
+            src={project.images}
+            alt={project.title}
+            width={120}
+            height={120}
+            className="rounded-lg"
+          />
+        ) : (
+          <PlaceholderImage label="项目封面占位" />
+        )}
       </div>
       <div className="flex flex-1 flex-col gap-3">
         <div>
-          <h4 className="text-lg font-semibold text-zinc-100">{project.title}</h4>
+          <h4 className="ps-text-title text-lg font-semibold">{project.title}</h4>
           <div className="mt-2 flex flex-wrap gap-2">
             {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-xs text-zinc-400"
-              >
+              <span key={tag} className="ps-tag">
                 {tag}
               </span>
             ))}
           </div>
         </div>
-        <p className="text-sm leading-relaxed text-zinc-400">{project.description}</p>
+        <p className="ps-text-body text-sm leading-relaxed">{project.description}</p>
         <button
           type="button"
           onClick={() => onOpen(project)}
-          className="mt-auto w-fit text-sm text-zinc-300 underline-offset-4 hover:text-white hover:underline"
+          className="ps-text-accent mt-auto w-fit text-sm underline-offset-4 hover:underline"
         >
           查看示例截图 →
         </button>
@@ -95,29 +99,32 @@ function ProjectCard2B({
 
 function ProjectCard2C({ project }: { project: (typeof projects2C)[number] }) {
   return (
-    <article className="group flex flex-col gap-5 rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 transition hover:border-white/[0.14] hover:bg-white/[0.04] sm:flex-row">
-      <div className="sm:w-[120px] sm:h-[120px] sm:shrink-0">
-        {
-          project.images
-            ? <Image src={project.images} alt={project.title} width={120} height={120} className="rounded-lg" />
-            : <PlaceholderImage label="项目封面占位" />
-        }
+    <article className={cn("ps-card ps-card-hover group flex flex-col gap-5 sm:flex-row")}>
+      <div className="sm:h-[120px] sm:w-[120px] sm:shrink-0">
+        {project.images ? (
+          <Image
+            src={project.images}
+            alt={project.title}
+            width={120}
+            height={120}
+            className="rounded-lg"
+          />
+        ) : (
+          <PlaceholderImage label="项目封面占位" />
+        )}
       </div>
       <div className="flex flex-1 flex-col gap-3">
         <div>
-          <div className="mt-2 flex items-center flex-wrap gap-2">
-            <h4 className="text-lg font-semibold text-zinc-100">{project.title}</h4>
+          <div className="mt-2 flex flex-wrap items-center gap-2">
+            <h4 className="ps-text-title text-lg font-semibold">{project.title}</h4>
             {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-xs text-zinc-400"
-              >
+              <span key={tag} className="ps-tag">
                 {tag}
               </span>
             ))}
           </div>
         </div>
-        <p className="text-sm leading-relaxed text-zinc-400">{project.description}</p>
+        <p className="ps-text-body text-sm leading-relaxed">{project.description}</p>
         <div className="mt-auto flex flex-wrap gap-2">
           {project.links.map((link) => (
             <Link
@@ -125,7 +132,7 @@ function ProjectCard2C({ project }: { project: (typeof projects2C)[number] }) {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-zinc-300 transition hover:border-white/20 hover:bg-white/10 hover:text-white"
+              className="ps-btn-link"
             >
               {link.label}
               <ExternalLink className="h-3.5 w-3.5" />
@@ -173,7 +180,7 @@ export default function PersonalHome() {
   }, []);
 
   return (
-    <div className="personal-site mx-auto flex min-h-screen w-full flex-col gap-8 px-4 py-8 md:flex-row md:gap-12 md:px-8 md:py-12">
+    <div className="personal-site ps-page mx-auto flex min-h-screen w-full flex-col gap-8 px-4 py-8 md:flex-row md:gap-12 md:px-8 md:py-12">
       <aside className="md:sticky md:top-12 md:h-fit md:w-52 md:shrink-0">
         <div className="mb-6 flex items-center justify-center">
           <Image
@@ -193,9 +200,7 @@ export default function PersonalHome() {
               onClick={() => scrollToSection(id)}
               className={cn(
                 "flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-left text-sm transition",
-                activeSection === id
-                  ? "bg-white/10 text-zinc-100"
-                  : "text-zinc-500 hover:bg-white/5 hover:text-zinc-300"
+                activeSection === id ? "ps-nav-active" : "ps-nav-item"
               )}
             >
               <span className="w-5 text-center text-xs opacity-70">{icon}</span>
@@ -204,13 +209,13 @@ export default function PersonalHome() {
           ))}
         </nav>
 
-        <p className="mt-8 hidden text-xs leading-relaxed text-zinc-600 md:block">
-          © {new Date().getFullYear()} {homeContent.alias}
-        </p>
+        <div className="mt-4 text-center">
+          <ThemeToggle />
+        </div>
       </aside>
 
       <div className="min-w-0 flex-1 space-y-20">
-        <div className="max-w-6xl mx-auto">
+        <div className="mx-auto max-w-6xl">
           <section
             id="home"
             ref={(el) => {
@@ -218,19 +223,19 @@ export default function PersonalHome() {
             }}
             className="scroll-mt-8"
           >
-            <p className="mb-2 text-sm text-zinc-500">{homeContent.greeting}</p>
-            <h1 className="mb-4 text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl">
-              I&apos;m <span className="text-zinc-100">{homeContent.name}</span>
-              <span className="text-zinc-500"> ({homeContent.alias})</span>
+            <p className="ps-text-muted mb-2 text-sm">{homeContent.greeting}</p>
+            <h1 className="ps-text-title mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
+              I&apos;m <span>{homeContent.name}</span>
+              <span className="ps-text-muted"> ({homeContent.alias})</span>
             </h1>
-            <p className="mt-4 mb-6 max-w-2xl text-base leading-relaxed text-zinc-400">
+            <p className="ps-text-body mb-6 mt-4 max-w-2xl text-base leading-relaxed">
               {homeContent.intro}
             </p>
 
             <ul className="mb-8 space-y-2">
               {homeContent.highlights.map((item) => (
-                <li key={item} className="flex gap-2 text-sm leading-relaxed text-zinc-400">
-                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-zinc-600" />
+                <li key={item} className="ps-text-body flex gap-2 text-sm leading-relaxed">
+                  <span className="ps-bullet mt-1.5 h-1 w-1 shrink-0 rounded-full" />
                   {item}
                 </li>
               ))}
@@ -238,37 +243,31 @@ export default function PersonalHome() {
 
             <div className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {homeContent.services.map((s) => (
-                <div
-                  key={s.title}
-                  className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-4"
-                >
-                  <h3 className="mb-2 text-sm font-semibold text-zinc-200">{s.title}</h3>
-                  <p className="text-sm leading-relaxed text-zinc-500">{s.text}</p>
+                <div key={s.title} className="ps-card-sm">
+                  <h3 className="ps-text-heading mb-2 text-sm font-semibold">{s.title}</h3>
+                  <p className="ps-text-muted text-sm leading-relaxed">{s.text}</p>
                 </div>
               ))}
             </div>
 
-            <h2 className="py-4 text-xl font-semibold text-zinc-200">工作经历</h2>
+            <h2 className="ps-text-heading py-4 text-xl font-semibold">工作经历</h2>
             <div className="space-y-4">
               {homeContent.experience.map((exp) => (
-                <div
-                  key={exp.company}
-                  className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5"
-                >
+                <div key={exp.company} className="ps-card">
                   <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="font-semibold text-zinc-100">{exp.company}</h3>
-                    <span className="text-xs text-zinc-600">{exp.period}</span>
+                    <h3 className="ps-text-title font-semibold">{exp.company}</h3>
+                    <span className="ps-text-subtle text-xs">{exp.period}</span>
                   </div>
-                  <p className="mb-1 text-sm text-zinc-400">{exp.role}</p>
-                  <p className="text-sm leading-relaxed text-zinc-500">{exp.description}</p>
+                  <p className="ps-text-body mb-1 text-sm">{exp.role}</p>
+                  <p className="ps-text-muted text-sm leading-relaxed">{exp.description}</p>
                 </div>
               ))}
             </div>
           </section>
 
           <section className="scroll-mt-8">
-            <h2 className="py-4 text-xl font-semibold text-zinc-200">技能与实践</h2>
-            <p className="mb-4 text-sm text-zinc-500">点击标签查看相关教程或分享</p>
+            <h2 className="ps-text-heading py-4 text-xl font-semibold">技能与实践</h2>
+            <p className="ps-text-muted mb-4 text-sm">点击标签查看相关教程或分享</p>
             <div className="flex flex-wrap gap-2">
               {skillTags.map((skill) => (
                 <Link
@@ -276,7 +275,7 @@ export default function PersonalHome() {
                   href={skill.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-zinc-300 transition hover:border-white/20 hover:bg-white/10 hover:text-white"
+                  className="ps-tag-link group"
                 >
                   {skill.label}
                   <ExternalLink className="h-3 w-3 opacity-0 transition group-hover:opacity-70" />
@@ -292,10 +291,10 @@ export default function PersonalHome() {
             }}
             className="scroll-mt-8"
           >
-            <h2 className="py-4 text-2xl font-bold text-zinc-100">Projects</h2>
-            <p className="mb-8 text-sm text-zinc-500">过往尝试与落地的项目记录</p>
+            <h2 className="ps-text-title py-4 text-2xl font-bold">Projects</h2>
+            <p className="ps-text-muted mb-8 text-sm">过往尝试与落地的项目记录</p>
 
-            <h3 className="pb-4 text font-semibold uppercase tracking-wider text-zinc-500">
+            <h3 className="ps-text-muted pb-4 text font-semibold uppercase tracking-wider">
               2B
             </h3>
             <div className="mb-10 space-y-4">
@@ -308,7 +307,7 @@ export default function PersonalHome() {
               ))}
             </div>
 
-            <h3 className="pb-4 text font-semibold uppercase tracking-wider text-zinc-500">
+            <h3 className="ps-text-muted pb-4 text font-semibold uppercase tracking-wider">
               2C
             </h3>
             <div className="space-y-4">
@@ -325,8 +324,8 @@ export default function PersonalHome() {
             }}
             className="scroll-mt-8 pb-12"
           >
-            <h2 className="py-4 text-2xl font-bold text-zinc-100">Social Media</h2>
-            <p className="mb-8 text-sm text-zinc-500">欢迎在各平台关注我</p>
+            <h2 className="ps-text-title py-4 text-2xl font-bold">Social Media</h2>
+            <p className="ps-text-muted mb-8 text-sm">欢迎在各平台关注我</p>
 
             <div className="grid gap-3 sm:grid-cols-2">
               {socialLinks.map((link) => (
@@ -335,15 +334,15 @@ export default function PersonalHome() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-between rounded-xl border border-white/[0.08] bg-white/[0.02] px-5 py-4 transition hover:border-white/[0.14] hover:bg-white/[0.04]"
+                  className="ps-card ps-card-hover group flex items-center justify-between px-5 py-4"
                 >
                   <div>
-                    <p className="font-medium text-zinc-200 group-hover:text-white">
+                    <p className="ps-text-heading font-medium group-hover:text-zinc-900 dark:group-hover:text-white">
                       {link.name}
                     </p>
-                    <p className="text-sm text-zinc-500">{link.handle}</p>
+                    <p className="ps-text-muted text-sm">{link.handle}</p>
                   </div>
-                  <ExternalLink className="h-4 w-4 text-zinc-600 transition group-hover:text-zinc-300" />
+                  <ExternalLink className="ps-social-icon h-4 w-4" />
                 </Link>
               ))}
             </div>

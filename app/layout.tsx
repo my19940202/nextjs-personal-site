@@ -35,15 +35,10 @@ export default async function RootLayout({
   return (
     <html lang={(lang && lang[0]) || defaultLocale} suppressHydrationWarning>
       <head />
-      <body
-        className={cn(
-          "min-h-screen bg-[#0a0a0a] font-sans text-zinc-300 antialiased"
-        )}
-      >
+      <body className={cn("min-h-screen bg-background font-sans text-foreground antialiased")}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          forcedTheme="dark"
+          defaultTheme={siteConfig.nextThemeColor}
           enableSystem={false}
         >
           <main className="min-h-screen">{children}</main>
