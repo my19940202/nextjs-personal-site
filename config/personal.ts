@@ -233,7 +233,7 @@ export const socialLinks = [
   },
   {
     name: "LinkedIn",
-    handle: "波 老",
-    href: "https://www.linkedin.com/in/%E6%B3%A2-%E8%80%81-772304295/",
+    handle: "xibobo",
+    href: "https://www.linkedin.com/in/shengbo-xi-772304295/",
   },
 ];
