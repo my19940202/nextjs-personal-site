@@ -194,7 +194,25 @@ export const projects2C: Project2C[] = [
         href: "https://github.com/my19940202/cursor-thinking-stat",
       },
     ],
-  }
+  },
+  {
+    id: "ai-link",
+    title: "AI Link 大模型 App",
+    description:
+      "面向国内用户的海外大模型统一访问 App，在一款应用内切换 DeepSeek、GPT、Claude 等模型，支持流式对话、Markdown 渲染与语音输入，解决国内访问不便的问题。",
+    tags: ["AI", "App", "大模型"],
+    images: "/icons/ai-link.png",
+    links: [{ label: "下载 App", href: "https://chat.aizeten.me/download" }],
+  },
+  {
+    id: "store-location-analyzer",
+    title: "Store Location Analyzer",
+    description:
+      "面向海外创业者与小商家的轻量化店铺选址工具，基于 Google Maps 快速分析竞品密度、客流潜力与配套设施，3 分钟出评分报告，比企业级 GIS 工具更轻、更快、更便宜。",
+    tags: ["Web", "SaaS", "海外"],
+    images: "/icons/siteselect.png",
+    links: [{ label: "访问网站", href: "https://www.siteselect.top" }],
+  },
 ];
 
 export const socialLinks = [
