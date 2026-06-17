@@ -90,7 +90,7 @@ function ProjectCard2B({
           onClick={() => onOpen(project)}
           className="ps-text-accent mt-auto w-fit text-sm underline-offset-4 hover:underline"
         >
-          查看示例截图 →
+          查看截图案例 →
         </button>
       </div>
     </article>
