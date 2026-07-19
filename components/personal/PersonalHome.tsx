@@ -7,6 +7,7 @@ import {
   NavId,
   navItems,
   Project2B,
+  ProjectWithGallery,
   projects2B,
   projects2C,
   skillTags,
@@ -56,7 +57,7 @@ function ProjectCard2B({
   onOpen,
 }: {
   project: Project2B;
-  onOpen: (p: Project2B) => void;
+  onOpen: (p: ProjectWithGallery) => void;
 }) {
   return (
     <article className={cn("ps-card ps-card-hover group flex flex-col gap-5 sm:flex-row")}>
@@ -97,7 +98,15 @@ function ProjectCard2B({
   );
 }
 
-function ProjectCard2C({ project }: { project: (typeof projects2C)[number] }) {
+function ProjectCard2C({
+  project,
+  onOpen,
+}: {
+  project: (typeof projects2C)[number];
+  onOpen?: (p: ProjectWithGallery) => void;
+}) {
+  const hasGallery = (project.galleryImages?.length ?? 0) > 0;
+
   return (
     <article className={cn("ps-card ps-card-hover group flex flex-col gap-5 sm:flex-row")}>
       <div className="sm:h-[120px] sm:w-[120px] sm:shrink-0">
@@ -125,7 +134,7 @@ function ProjectCard2C({ project }: { project: (typeof projects2C)[number] }) {
           </div>
         </div>
         <p className="ps-text-body text-sm leading-relaxed">{project.description}</p>
-        <div className="mt-auto flex flex-wrap gap-2">
+        <div className={cn("flex flex-wrap gap-2", hasGallery ? "" : "mt-auto")}>
           {project.links.map((link) => (
             <Link
               key={link.href}
@@ -139,6 +148,21 @@ function ProjectCard2C({ project }: { project: (typeof projects2C)[number] }) {
             </Link>
           ))}
         </div>
+        {hasGallery && onOpen && (
+          <button
+            type="button"
+            onClick={() =>
+              onOpen({
+                id: project.id,
+                title: project.title,
+                galleryImages: project.galleryImages!,
+              })
+            }
+            className="ps-text-accent mt-auto w-fit text-sm underline-offset-4 hover:underline"
+          >
+            查看示例截图 →
+          </button>
+        )}
       </div>
     </article>
   );
@@ -146,7 +170,7 @@ function ProjectCard2C({ project }: { project: (typeof projects2C)[number] }) {
 
 export default function PersonalHome() {
   const [activeSection, setActiveSection] = useState<NavId>("home");
-  const [modalProject, setModalProject] = useState<Project2B | null>(null);
+  const [modalProject, setModalProject] = useState<ProjectWithGallery | null>(null);
   const sectionRefs = useRef<Record<NavId, HTMLElement | null>>({
     home: null,
     projects: null,
@@ -302,7 +326,13 @@ export default function PersonalHome() {
                 <ProjectCard2B
                   key={project.id}
                   project={project}
-                  onOpen={setModalProject}
+                  onOpen={(p) =>
+                    setModalProject({
+                      id: p.id,
+                      title: p.title,
+                      galleryImages: p.galleryImages,
+                    })
+                  }
                 />
               ))}
             </div>
@@ -312,7 +342,11 @@ export default function PersonalHome() {
             </h3>
             <div className="space-y-4">
               {projects2C.map((project) => (
-                <ProjectCard2C key={project.id} project={project} />
+                <ProjectCard2C
+                  key={project.id}
+                  project={project}
+                  onOpen={setModalProject}
+                />
               ))}
             </div>
           </section>

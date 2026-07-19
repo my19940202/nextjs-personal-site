@@ -1,13 +1,13 @@
 "use client";
 
-import { Project2B } from "@/config/personal";
+import { ProjectWithGallery } from "@/config/personal";
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
 type ProjectModalProps = {
-  project: Project2B | null;
+  project: ProjectWithGallery | null;
   onClose: () => void;
 };
 

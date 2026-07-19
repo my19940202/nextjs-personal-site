@@ -22,6 +22,14 @@ export type Project2C = {
   tags: string[];
   links: ProjectLink[];
   images?: string;
+  /** Modal 轮播图，空数组则显示占位 */
+  galleryImages?: string[];
+};
+
+export type ProjectWithGallery = {
+  id: string;
+  title: string;
+  galleryImages: string[];
 };
 
 export const navItems = [
@@ -148,6 +156,23 @@ export const projects2B: Project2B[] = [
 ];
 
 export const projects2C: Project2C[] = [
+  {
+    id: "waiyuka",
+    title: "黄油单词",
+    description:
+      "黄油单词 是一个面向简繁中文用户的多语种单词记忆网站，提供西班牙语、法语、德语、英语、日语五大语种学习。AI 配图记忆、标准 TTS 发音、独家记忆技巧、选择题和拼字母双模式练习，让背单词变得轻松高效。本站采用移动优先设计，支持深色模式。",
+    tags: ["Web", "教育", "多语种"],
+    images: "/icons/waiyuka.png",
+    galleryImages: [
+      "/projects/waiyuka/0.png",
+      "/projects/waiyuka/1.png",
+      "/projects/waiyuka/2.png",
+      "/projects/waiyuka/3.png",
+      "/projects/waiyuka/4.png",
+      "/projects/waiyuka/5.png",
+    ],
+    links: [{ label: "访问网站", href: "https://waiyuka.cc" }],
+  },
   {
     id: "nano-banana-ppt",
     title: "Nano Banana PPT 生成网站",
