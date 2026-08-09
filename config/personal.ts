@@ -110,6 +110,7 @@ export const projects2B: Project2B[] = [
   {
     id: "house-decoration",
     title: "装修商城小程序",
+    images: '/icons/decoration.png',
     description:
       "为装修行业打造的微信小程序，将微信群宣传、需求收集、购物车与订单流程线上化，帮助装修老板高效分发与管理客户需求。",
     tags: ["微信小程序", "2B", "电商"],
@@ -134,8 +135,7 @@ export const projects2B: Project2B[] = [
       '/projects/words/3.png',
       '/projects/words/4.png',
       '/projects/words/5.png',
-      '/projects/words/6.png',
-      '/projects/words/7.png',
+      '/projects/words/6.png'
     ],
   },
   {
@@ -205,6 +205,7 @@ export const projects2C: Project2C[] = [
   },
   {
     id: "cursor-hooks-english",
+    images: '/icons/cursor.png',
     title: "Cursor Hooks 学英语",
     description:
       "结合 Cursor Hooks 的英语学习项目，通过开发工作流中的钩子机制辅助语言学习，并开源了配套统计工具。",
@@ -237,6 +238,16 @@ export const projects2C: Project2C[] = [
     tags: ["Web", "SaaS", "海外"],
     images: "/icons/siteselect.png",
     links: [{ label: "访问网站", href: "https://www.siteselect.top" }],
+  },
+  // 新增一个重生模拟器
+  {
+    id: "rebirth-simulator",
+    title: "重生模拟器",
+    description:
+      "重生模拟器，随机过几分钟别人的人生。本模拟不预测命运，也不负责让你成功。",
+    tags: ["Web", "模拟器"],
+    images: "/icons/life.png",
+    links: [{ label: "访问网站", href: "https://life.aizeten.me" }],
   },
 ];
 

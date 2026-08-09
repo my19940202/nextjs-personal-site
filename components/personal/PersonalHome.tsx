@@ -7,9 +7,9 @@ import {
   NavId,
   navItems,
   Project2B,
-  ProjectWithGallery,
   projects2B,
   projects2C,
+  ProjectWithGallery,
   skillTags,
   socialLinks,
 } from "@/config/personal";
@@ -361,7 +361,7 @@ export default function PersonalHome() {
             <h2 className="ps-text-title py-4 text-2xl font-bold">Social Media</h2>
             <p className="ps-text-muted mb-8 text-sm">欢迎在各平台关注我</p>
 
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-3 md:grid-cols-4 grid-cols-2">
               {socialLinks.map((link) => (
                 <Link
                   key={link.href}
