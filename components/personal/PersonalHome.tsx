@@ -60,21 +60,21 @@ function ProjectCard2B({
   onOpen: (p: ProjectWithGallery) => void;
 }) {
   return (
-    <article className={cn("ps-card ps-card-hover group flex flex-col gap-5 sm:flex-row")}>
-      <div className="sm:h-[120px] sm:w-[120px] sm:shrink-0">
+    <article className={cn("ps-card ps-card-hover group flex flex-row gap-4 sm:gap-5")}>
+      <div className="h-[88px] w-[88px] shrink-0 sm:h-[120px] sm:w-[120px]">
         {project.images ? (
           <Image
             src={project.images}
             alt={project.title}
             width={120}
             height={120}
-            className="rounded-lg"
+            className="h-full w-full rounded-lg object-cover"
           />
         ) : (
           <PlaceholderImage label="项目封面占位" />
         )}
       </div>
-      <div className="flex flex-1 flex-col gap-3">
+      <div className="flex min-w-0 flex-1 flex-col gap-3">
         <div>
           <h4 className="ps-text-title text-lg font-semibold">{project.title}</h4>
           <div className="mt-2 flex flex-wrap gap-2">
@@ -85,7 +85,9 @@ function ProjectCard2B({
             ))}
           </div>
         </div>
-        <p className="ps-text-body text-sm leading-relaxed">{project.description}</p>
+        <p className="ps-text-body line-clamp-2 text-sm leading-relaxed lg:truncate">
+          {project.description}
+        </p>
         <button
           type="button"
           onClick={() => onOpen(project)}
@@ -108,21 +110,21 @@ function ProjectCard2C({
   const hasGallery = (project.galleryImages?.length ?? 0) > 0;
 
   return (
-    <article className={cn("ps-card ps-card-hover group flex flex-col gap-5 sm:flex-row")}>
-      <div className="sm:h-[120px] sm:w-[120px] sm:shrink-0">
+    <article className={cn("ps-card ps-card-hover group flex flex-row gap-4 sm:gap-5")}>
+      <div className="h-[88px] w-[88px] shrink-0 sm:h-[120px] sm:w-[120px]">
         {project.images ? (
           <Image
             src={project.images}
             alt={project.title}
             width={120}
             height={120}
-            className="rounded-lg"
+            className="h-full w-full rounded-lg object-cover"
           />
         ) : (
           <PlaceholderImage label="项目封面占位" />
         )}
       </div>
-      <div className="flex flex-1 flex-col gap-3">
+      <div className="flex min-w-0 flex-1 flex-col gap-3">
         <div>
           <div className="mt-2 flex flex-wrap items-center gap-2">
             <h4 className="ps-text-title text-lg font-semibold">{project.title}</h4>
@@ -133,7 +135,9 @@ function ProjectCard2C({
             ))}
           </div>
         </div>
-        <p className="ps-text-body text-sm leading-relaxed">{project.description}</p>
+        <p className="ps-text-body line-clamp-2 text-sm leading-relaxed lg:truncate">
+          {project.description}
+        </p>
         <div className={cn("flex flex-wrap gap-2", hasGallery ? "" : "mt-auto")}>
           {project.links.map((link) => (
             <Link
@@ -321,7 +325,7 @@ export default function PersonalHome() {
             <h3 className="ps-text-muted pb-4 text font-semibold uppercase tracking-wider">
               2B
             </h3>
-            <div className="mb-10 space-y-4">
+            <div className="mb-10 grid gap-4 lg:grid-cols-2">
               {projects2B.map((project) => (
                 <ProjectCard2B
                   key={project.id}
@@ -340,7 +344,7 @@ export default function PersonalHome() {
             <h3 className="ps-text-muted pb-4 text font-semibold uppercase tracking-wider">
               2C
             </h3>
-            <div className="space-y-4">
+            <div className="grid gap-4 lg:grid-cols-2">
               {projects2C.map((project) => (
                 <ProjectCard2C
                   key={project.id}

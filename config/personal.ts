@@ -157,6 +157,15 @@ export const projects2B: Project2B[] = [
 
 export const projects2C: Project2C[] = [
   {
+    id: "democue",
+    title: "DemoCue",
+    description:
+      "DemoCue 是桌面端录屏与屏幕直播辅助工具：生成讲解提纲，把章节放进悬浮提示条，用提纲引导你在录制或直播过程中按章节推进，减少忘词、跑题和反复重录。",
+    tags: ["AI", "桌面工具", "录屏"],
+    images: "/icons/democue.png",
+    links: [{ label: "访问网站", href: "https://democue.aizeten.me" }],
+  },
+  {
     id: "waiyuka",
     title: "黄油单词",
     description:
