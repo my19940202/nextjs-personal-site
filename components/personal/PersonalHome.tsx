@@ -85,7 +85,7 @@ function ProjectCard2B({
             ))}
           </div>
         </div>
-        <p className="ps-text-body line-clamp-2 text-sm leading-relaxed lg:truncate">
+        <p className="ps-text-body line-clamp-2 text-sm leading-relaxed">
           {project.description}
         </p>
         <button
@@ -135,7 +135,7 @@ function ProjectCard2C({
             ))}
           </div>
         </div>
-        <p className="ps-text-body line-clamp-2 text-sm leading-relaxed lg:truncate">
+        <p className="ps-text-body line-clamp-2 text-sm leading-relaxed">
           {project.description}
         </p>
         <div className={cn("flex flex-wrap gap-2", hasGallery ? "" : "mt-auto")}>

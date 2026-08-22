@@ -258,6 +258,21 @@ export const projects2C: Project2C[] = [
     images: "/icons/life.png",
     links: [{ label: "访问网站", href: "https://life.aizeten.me" }],
   },
+  {
+    id: "mid-page-skip",
+    title: "免跳直达",
+    description:
+      "Chrome 扩展，帮你少点一次「继续访问」。在微信 weixin110 安全提示、CSDN / 掘金外链中转、以及 X、Facebook、Threads 包装页上，自动解析并跳到真实网址。",
+    tags: ["Chrome 插件", "2C"],
+    images: "/icons/autojump.png",
+    links: [
+      {
+        label: "Chrome Web Store",
+        href: "https://chromewebstore.google.com/detail/fpljgabmnoghfieaoehmcjgfelboedda",
+      },
+      { label: "访问网站", href: "https://autojump.aizeten.me" },
+    ],
+  },
 ];
 
 export const socialLinks = [
