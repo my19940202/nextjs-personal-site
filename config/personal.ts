@@ -13,6 +13,7 @@ export type Project2B = {
   /** 小程序二维码，稍后补充 */
   qrCode?: string;
   images?: string;
+  links?: ProjectLink[];
 };
 
 export type Project2C = {
@@ -107,6 +108,16 @@ export const skillTags: SkillTag[] = [
 ];
 
 export const projects2B: Project2B[] = [
+  {
+    id: "newbee",
+    title: "NewBee 招聘平台",
+    description:
+      "面向香港灵活用工的招聘平台。求职者可浏览职位、报名排班、跟进求职记录和消息，并完成身份认证，把招募、沟通和出粮收到同一套线上流程。支持繁体中文、简体中文和英文。",
+    tags: ["Web", "2B", "招聘"],
+    images: "/icons/newbee.png",
+    galleryImages: [],
+    links: [{ label: "访问网站", href: "https://newbeehk.com" }],
+  },
   {
     id: "house-decoration",
     title: "装修商城小程序",

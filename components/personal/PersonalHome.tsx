@@ -59,6 +59,9 @@ function ProjectCard2B({
   project: Project2B;
   onOpen: (p: ProjectWithGallery) => void;
 }) {
+  const hasGallery = project.galleryImages.length > 0;
+  const hasLinks = (project.links?.length ?? 0) > 0;
+
   return (
     <article className={cn("ps-card ps-card-hover group flex flex-row gap-4 sm:gap-5")}>
       <div className="h-[88px] w-[88px] shrink-0 sm:h-[120px] sm:w-[120px]">
@@ -88,13 +91,31 @@ function ProjectCard2B({
         <p className="ps-text-body line-clamp-2 text-sm leading-relaxed">
           {project.description}
         </p>
-        <button
-          type="button"
-          onClick={() => onOpen(project)}
-          className="ps-text-accent mt-auto w-fit text-sm underline-offset-4 hover:underline"
-        >
-          查看截图案例 →
-        </button>
+        {hasLinks && (
+          <div className={cn("flex flex-wrap gap-2", hasGallery ? "" : "mt-auto")}>
+            {project.links!.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ps-btn-link"
+              >
+                {link.label}
+                <ExternalLink className="h-3.5 w-3.5" />
+              </Link>
+            ))}
+          </div>
+        )}
+        {hasGallery && (
+          <button
+            type="button"
+            onClick={() => onOpen(project)}
+            className="ps-text-accent mt-auto w-fit text-sm underline-offset-4 hover:underline"
+          >
+            查看截图案例 →
+          </button>
+        )}
       </div>
     </article>
   );
