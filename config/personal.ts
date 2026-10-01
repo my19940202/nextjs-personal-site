@@ -188,7 +188,7 @@ export const projects2C: Project2C[] = [
     description: "基于 AI 的 PPT 生成网站，帮助用户快速产出演示文稿。",
     tags: ["AI", "Web", "PPT"],
     images: '/icons/ppt.png',
-    links: [{ label: "访问网站", href: "http://ppt.hoduan.com/" }],
+    links: [{ label: "访问网站", href: "https://banana-ppt.com" }],
   },
   {
     id: "ai-image-maker",
