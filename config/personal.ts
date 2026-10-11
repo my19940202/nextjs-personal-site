@@ -109,6 +109,16 @@ export const skillTags: SkillTag[] = [
 
 export const projects2B: Project2B[] = [
   {
+    id: "python-learning-site",
+    title: "Python 学习网站",
+    description:
+      "为美国大学教师及其学生开发的在线 Python 学习网站，帮助学生通过在线练习学习 Python。",
+    tags: ["Web", "2B", "教育"],
+    images: "/icons/acengine.png",
+    galleryImages: [],
+    links: [{ label: "访问网站", href: "https://www.acengine.org/" }],
+  },
+  {
     id: "newbee",
     title: "NewBee 招聘平台",
     description:
