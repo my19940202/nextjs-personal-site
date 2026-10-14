@@ -178,6 +178,15 @@ export const projects2B: Project2B[] = [
 
 export const projects2C: Project2C[] = [
   {
+    id: "zhiji",
+    title: "知迹",
+    description:
+      "知迹是多模型 AI 对话产品。提问、朗读和整理都留在同一个知识空间里，对话可以回看、继续追问，并整理成个人知识图谱。",
+    tags: ["AI", "Web", "知识图谱"],
+    images: "/icons/zhiji.png",
+    links: [{ label: "访问网站", href: "https://zhiji.aizeten.me" }],
+  },
+  {
     id: "democue",
     title: "DemoCue",
     description:
