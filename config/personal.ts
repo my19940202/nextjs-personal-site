@@ -270,13 +270,13 @@ export const projects2C: Project2C[] = [
     links: [{ label: "下载 App", href: "https://chat.aizeten.me/download" }],
   },
   {
-    id: "store-location-analyzer",
-    title: "Store Location Analyzer",
+    id: "satisfy-lab",
+    title: "Satisfy Lab",
     description:
-      "面向海外创业者与小商家的轻量化店铺选址工具，基于 Google Maps 快速分析竞品密度、客流潜力与配套设施，3 分钟出评分报告，比企业级 GIS 工具更轻、更快、更便宜。",
-    tags: ["Web", "SaaS", "海外"],
-    images: "/icons/siteselect.png",
-    links: [{ label: "访问网站", href: "https://www.siteselect.top" }],
+      "免费在线互动解压玩具合集，通过视觉 ASMR、舒缓音效和轻松互动，随时带来一段没有倒计时、分数与竞争压力的短暂休息。无需注册，打开浏览器即可体验。",
+    tags: ["Web", "互动玩具", "视觉 ASMR"],
+    images: "/icons/satisfy-lab.png",
+    links: [{ label: "访问网站", href: "https://satisfylab.me/" }],
   },
   // 新增一个重生模拟器
   {
