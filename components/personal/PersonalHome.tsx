@@ -316,7 +316,7 @@ export default function PersonalHome() {
 
           <section className="scroll-mt-8">
             <h2 className="ps-text-heading py-4 text-xl font-semibold">技能与实践</h2>
-            <p className="ps-text-muted mb-4 text-sm">点击标签查看相关教程或分享</p>
+            <p className="ps-text-muted mb-4 text-sm leading-relaxed">{homeContent.skillsIntro}</p>
             <div className="flex flex-wrap gap-2">
               {skillTags.map((skill) => (
                 <Link
