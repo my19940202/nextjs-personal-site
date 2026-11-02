@@ -181,6 +181,15 @@ export const projects2B: Project2B[] = [
 
 export const projects2C: Project2C[] = [
   {
+    id: "huiye",
+    title: "绘页",
+    description:
+      "绘页把文字整理成可修改的分页脚本，生成配图并合成为竖屏视频。",
+    tags: ["AI", "Web", "视频制作"],
+    images: "/icons/huiye.png",
+    links: [{ label: "访问网站", href: "https://huiye.org/zh" }],
+  },
+  {
     id: "zhiji",
     title: "知迹",
     description:
