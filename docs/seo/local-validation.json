@@ -1,0 +1,43 @@
+{
+  "checkedAt": "2026-11-05T08:59:55.962Z",
+  "base": "http://localhost:3081",
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "title": "渣渣奚 xibobo｜企业流程自动化、小程序与 AI 应用开发"
+    },
+    {
+      "path": "/services/workflow-automation",
+      "status": 200,
+      "title": "企业流程自动化｜渣渣奚 xibobo"
+    },
+    {
+      "path": "/services/web-miniapp-development",
+      "status": 200,
+      "title": "网站与微信小程序开发｜渣渣奚 xibobo"
+    },
+    {
+      "path": "/services/ai-application-development",
+      "status": 200,
+      "title": "AI 应用与内容工作流开发｜渣渣奚 xibobo"
+    },
+    {
+      "path": "/projects/house-decoration",
+      "status": 200,
+      "title": "装修商城小程序｜渣渣奚 xibobo"
+    },
+    {
+      "path": "/projects/language-learning",
+      "status": 200,
+      "title": "多语种背单词学习小程序｜渣渣奚 xibobo"
+    },
+    {
+      "path": "/projects/scenic-guide",
+      "status": 200,
+      "title": "景区导览小程序｜渣渣奚 xibobo"
+    }
+  ],
+  "sitemapCount": 7,
+  "unknownRoutes": 404
+}

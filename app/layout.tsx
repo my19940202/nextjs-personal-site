@@ -3,7 +3,8 @@ import GoogleAnalytics from "@/app/GoogleAnalytics";
 import { TailwindIndicator } from "@/components/TailwindIndicator";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { siteConfig } from "@/config/site";
-import { defaultLocale } from "@/lib/i18n";
+import { pageMetadata, homeTitle, description } from "@/lib/seo";
+import ClickTracking from "@/components/personal/ClickTracking";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import "@/styles/loading.css";
@@ -11,15 +12,10 @@ import { Analytics } from "@vercel/analytics/react";
 import { Viewport } from "next";
 
 export const metadata = {
-  title: siteConfig.name,
-  description: siteConfig.description,
-  keywords: siteConfig.keywords,
+  ...pageMetadata(homeTitle, description, '/'),
   authors: siteConfig.authors,
   creator: siteConfig.creator,
   icons: siteConfig.icons,
-  metadataBase: siteConfig.metadataBase,
-  openGraph: siteConfig.openGraph,
-  twitter: siteConfig.twitter,
 };
 export const viewport: Viewport = {
   themeColor: siteConfig.themeColors,
@@ -27,13 +23,11 @@ export const viewport: Viewport = {
 
 export default async function RootLayout({
   children,
-  params: { lang },
 }: {
   children: React.ReactNode;
-  params: { lang: string[] | undefined };
 }) {
   return (
-    <html lang={(lang && lang[0]) || defaultLocale} suppressHydrationWarning>
+    <html lang="zh-CN" suppressHydrationWarning>
       <head />
       <body className={cn("min-h-screen bg-background font-sans text-foreground antialiased")}>
         <ThemeProvider
@@ -43,6 +37,7 @@ export default async function RootLayout({
         >
           <main className="min-h-screen">{children}</main>
           <Analytics />
+          <ClickTracking />
           <TailwindIndicator />
         </ThemeProvider>
         {process.env.NODE_ENV === "development" ? (

@@ -1,5 +1,6 @@
 "use client";
 
+import { services, cases } from "@/config/content";
 import ProjectModal from "@/components/personal/ProjectModal";
 import ThemeToggle from "@/components/personal/ThemeToggle";
 import {
@@ -91,6 +92,7 @@ function ProjectCard2B({
         <p className="ps-text-body line-clamp-2 text-sm leading-relaxed">
           {project.description}
         </p>
+        {cases.some(item=>item.slug===project.id) && <Link href={`/projects/${project.id}`} data-track-kind="project" data-track-slug={project.id} className="text-sm underline underline-offset-4">查看项目详情 →</Link>}
         {hasLinks && (
           <div className={cn("flex flex-wrap gap-2", hasGallery ? "" : "mt-auto")}>
             {project.links!.map((link) => (
@@ -290,11 +292,14 @@ export default function PersonalHome() {
               ))}
             </ul>
 
+            <h2 className="ps-text-heading py-4 text-xl font-semibold">可以提供的服务</h2>
+            <p className="mb-6"><a href="mailto:xishengbo@gmail.com" data-track-kind="contact" data-track-slug="home" className="underline underline-offset-4">聊聊你的业务需求 →</a></p>
             <div className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {homeContent.services.map((s) => (
+              {services.map((s) => (
                 <div key={s.title} className="ps-card-sm">
                   <h3 className="ps-text-heading mb-2 text-sm font-semibold">{s.title}</h3>
-                  <p className="ps-text-muted text-sm leading-relaxed">{s.text}</p>
+                  <p className="ps-text-muted text-sm leading-relaxed">{s.summary}</p>
+                  <Link href={`/services/${s.slug}`} data-track-kind="service" data-track-slug={s.slug} className="mt-3 inline-block underline underline-offset-4">了解服务 →</Link>
                 </div>
               ))}
             </div>

@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-11-05T08:52:55.759Z",
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "finalUrl": "https://www.aizeten.me/",
+      "canonical": null,
+      "title": "xibobo"
+    },
+    {
+      "path": "/not-a-real-page",
+      "status": 200,
+      "finalUrl": "https://www.aizeten.me/",
+      "canonical": null,
+      "title": "xibobo"
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "finalUrl": "https://www.aizeten.me/robots.txt",
+      "canonical": null,
+      "title": null
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "finalUrl": "https://www.aizeten.me/sitemap.xml",
+      "canonical": null,
+      "title": null
+    },
+    {
+      "path": "/og.png",
+      "status": 200,
+      "finalUrl": "https://www.aizeten.me/og.png",
+      "canonical": null,
+      "title": null
+    }
+  ]
+}

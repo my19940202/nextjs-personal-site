@@ -7,14 +7,14 @@ const OPEN_SOURCE_URL = "https://github.com/my19940202/";
 const baseSiteConfig = {
   name: "xibobo",
   description: "Personal website of xibobo.",
-  url: "https://aizeten.me",
-  ogImage: "https://aizeten.me/og.png",
-  metadataBase: "/",
+  url: "https://www.aizeten.me",
+  ogImage: "https://www.aizeten.me/og.png",
+  metadataBase: "https://www.aizeten.me",
   keywords: ["xibobo", "personal website", "portfolio", "aizeten.me"],
   authors: [
     {
       name: "xibobo",
-      url: "https://aizeten.me",
+      url: "https://www.aizeten.me",
       twitter: "https://twitter.com/xishengbo",
     },
   ],
@@ -54,7 +54,7 @@ export const siteConfig: SiteConfig = {
   ...baseSiteConfig,
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "zh_CN",
     url: baseSiteConfig.url,
     title: baseSiteConfig.name,
     description: baseSiteConfig.description,

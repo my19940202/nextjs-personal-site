@@ -1,0 +1,37 @@
+import assert from 'node:assert/strict';
+const base=process.argv[2] || 'http://localhost:3081';
+const canonical='https://www.aizeten.me';
+const paths=['/','/services/workflow-automation','/services/web-miniapp-development','/services/ai-application-development','/projects/house-decoration','/projects/language-learning','/projects/scenic-guide'];
+const results=[];
+const titles=new Set();
+for(const path of paths) {
+ const response=await fetch(base+path,{redirect:'manual'});
+ assert.equal(response.status,200,path);
+ const html=await response.text();
+ assert.ok(html.includes(`rel="canonical" href="${canonical+path}"`),path+' canonical');
+ assert.ok(html.includes('<html lang="zh-CN"'),path+' language');
+ assert.equal((html.match(/<h1[ >]/g)||[]).length,1,path+' h1');
+ assert.ok(!html.includes('hreflang='));
+ const title=html.match(/<title>(.*?)<\/title>/)?.[1]; assert.ok(title); titles.add(title);
+ const data=[...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
+ assert.ok(data.length,path+' schema');
+ for(const [,_href] of html.matchAll(/href="(\/(?:services|projects)\/[^"#?]+)"/g)) assert.ok(paths.includes(_href),'unpublished link '+_href);
+ results.push({path,status:response.status,title});
+}
+assert.equal(titles.size,paths.length,'unique titles');
+for(const path of ['/not-a-real-page','/services/unknown','/projects/unknown','/zh']) assert.equal((await fetch(base+path,{redirect:'manual'})).status,404,path);
+const sitemap=await (await fetch(base+'/sitemap.xml')).text();
+const urls=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1]);
+assert.deepEqual(urls.sort(),paths.map(p=>canonical+p).sort());
+assert.ok(!sitemap.includes('<lastmod>'),'no fabricated modification dates');
+const robots=await (await fetch(base+'/robots.txt')).text();assert.ok(robots.includes(canonical+'/sitemap.xml'));
+assert.equal((await fetch(base+'/og.png')).status,200);
+const llmsResponse=await fetch(base+'/llms.txt');
+assert.equal(llmsResponse.status,200);
+assert.match(llmsResponse.headers.get('content-type')||'',/text\/plain/);
+const llms=await llmsResponse.text();
+assert.ok(llms.startsWith('# 渣渣奚 xibobo'));
+assert.equal(llms.includes('https://aizeten.me/'),false,'use canonical www domain');
+for(const path of paths) assert.ok(llms.includes(canonical+path),'llms missing '+path);
+assert.equal(sitemap.includes('/llms.txt'),false,'llms is a reference file, not an HTML page');
+console.log(JSON.stringify({checkedAt:new Date().toISOString(),base,results,sitemapCount:urls.length,unknownRoutes:404},null,2));
