@@ -28,7 +28,13 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
-      <head />
+      <head>
+        <script
+          defer
+          src="https://stat.aizeten.me/script.js"
+          data-website-id="39d58a6e-a384-46c3-9b62-f65104fdda22"
+        ></script>
+      </head>
       <body className={cn("min-h-screen bg-background font-sans text-foreground antialiased")}>
         <ThemeProvider
           attribute="class"
