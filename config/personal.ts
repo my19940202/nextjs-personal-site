@@ -273,15 +273,6 @@ export const projects2C: Project2C[] = [
     ],
   },
   {
-    id: "ai-link",
-    title: "AI Link 大模型 App",
-    description:
-      "面向国内用户的海外大模型统一访问 App，在一款应用内切换 DeepSeek、GPT、Claude 等模型，支持流式对话、Markdown 渲染与语音输入，解决国内访问不便的问题。",
-    tags: ["AI", "App", "大模型"],
-    images: "/icons/ai-link.png",
-    links: [{ label: "下载 App", href: "https://chat.aizeten.me/download" }],
-  },
-  {
     id: "satisfy-lab",
     title: "Satisfy Lab",
     description:
